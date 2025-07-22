@@ -7,11 +7,29 @@
 </head>
 
 <body>	
-	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			
-		}
+<script>
+	function secondHighest(arr) {
+  // If array has fewer than 2 elements, return -Infinity
+  if (arr.length < 2) {
+    return '-Infinity';
+  }
+
+  // Convert input strings to numbers
+  arr = arr.map(Number);
+
+  // Create a Set to remove duplicates, then convert it back to array
+  let temp = [...new Set(arr)];
+
+  // If only one unique element remains, return -Infinity
+  if (temp.length < 2) {
+    return '-Infinity';
+  }
+
+  // Sort descending and return the second element
+  temp.sort((a, b) => b - a);
+  return temp[1];
+}
+
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
